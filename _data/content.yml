@@ -1,10 +1,10 @@
 home:
-  title: "Rico's cheatsheets"
+  title: "Jenkins-X cheatsheets"
   tagline: |
-    Hey! I'm <a href='https://ricostacruz.com'>@rstacruz</a> and this is a modest collection of cheatsheets I've written.
+    Hey! I'm Hardy and this is my Jenkins-X cheatsheet collection.
 
 top_nav:
-  title: Devhints.io
+  title: Jenkins-X cheatsheets
   edit: Edit
   edit_on_github: Edit this page on GitHub
 
