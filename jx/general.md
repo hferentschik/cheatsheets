@@ -1,13 +1,11 @@
 ---
-title: General jx
+title: Dev Workflow
 category: jx
 layout: 2017/sheet
 ---
 
-### Target heart rate
+### Find logs for pull request
 
-AAA
-
-### Warmup sets
-
-BBB
+```bash
+> jx get build log -f <pr-number>
+```
