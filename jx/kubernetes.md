@@ -2,20 +2,20 @@
 title: Kubernets helpers
 category: jx
 layout: 2017/sheet
+intro: |
+  Some jx and kubectl commands useful when inspecting an Jenksins-X install. 
 ---
-
-### Change the current Kuberentes namespace
-
-Instead of using `kubectl`:
-
-```bash
-> jx ns
-```
 
 ### List all resources in the cluster
 
 ```bash
 > kubectl api-resources --verbs=list -o name | xargs -n 1 kubectl get -o name
+```
+
+or to see the endpoints:
+
+```bash
+> kubectl api-resources -v=6
 ```
 
 ### CRDs
@@ -45,12 +45,14 @@ Instead of using `kubectl`:
 * postsubmit - release
 * peridoc - time based (Prow internal)
 
-### Krew install
+### Detect all resources for a given build
 
-[krew](https://github.com/kubernetes-sigs/krew) is the package manager for kubectl plugins. Install [instructions](https://github.com/kubernetes-sigs/krew#installation).
-
-### Krew list plugins
+Assuming a repository name of _repo_ and the build number _11_:
 
 ```bash
-> kubectel krew list
+> for i in pipelineactivity pipeline pipelinestructure taskrun pipelinerun task pod; do 
+   kubectl get "$i" --show-kind --no-headers --ignore-not-found -l repo=demo,build=11
+  done
 ```
+
+Other labels which can be used: _branch_, _build_, _owner_, _repo_, _prowJobName_

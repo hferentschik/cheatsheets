@@ -1,7 +1,8 @@
 enabled: true
 names:
-  - docker
   - jx
-  - git
+  - kubernetes
   - gcloud
+  - docker
+  - git
   - helm
