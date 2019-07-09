@@ -12,6 +12,12 @@ Instead of using `kubectl`:
 > jx ns
 ```
 
+### Start a pipeline
+
+```bash
+> jx start pipleline
+```
+
 ### Find logs for pull request
 
 ```bash
