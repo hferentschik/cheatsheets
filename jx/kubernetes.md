@@ -6,6 +6,12 @@ intro: |
   Some jx and kubectl commands useful when inspecting an Jenksins-X install. 
 ---
 
+### Tailing logs of latest pipelinerunner deployment
+
+```bash
+> kubectl logs $(kubectl get pod -l app=pipelinerunner -o name) -f
+```
+
 ### List all resources in the cluster
 
 ```bash
