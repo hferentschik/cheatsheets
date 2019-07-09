@@ -4,9 +4,9 @@ category: jx
 layout: 2017/sheet
 ---
 
-### Debugging jx within the cluster
+### Running jx dev versions within the cluster
 
-To test controllers or pipeline steps in a running cluster against a dev version of `jx`, one can build the image locally, push it to a accessible image registry and then change the deployment config of the appropriate deployment to use this new image.
+To test controllers or pipeline steps in a running cluster against a dev version of `jx`, one can build the image locally, push it to a accessible image registry (eg Docker Hub) and then change the deployment config of the appropriate deployment to use this new image.
 
 To build locally, using a short SHA to identify the image:
 
@@ -27,3 +27,45 @@ COPY ./build/linux/jx /usr/bin/jx
 ```
 
 Once the image is pushed use `kubectl` or the Kube console to change the deployment config.
+
+### Patching deployments 
+
+Use [JSON Patch Builder Online](https://json-patch-builder-online.github.io/) to prepare your JSON patch, then execute `kubectl patch`. In the example below the pipelinerunner is patched where we want to replace the image at two different places:
+
+```json
+{
+    "spec": {
+        "containers": [
+            {
+                "args": [
+                    "controller",
+                    "pipelinerunner",
+                    "--use-meta-pipeline",
+                    "--meta-pipeline-image",
+                    "hferentschik/jx:6f8018014",
+                    "--verbose"
+                ],
+                "image": "hferentschik/jx:6f8018014",
+            }
+        ]
+     }
+ }
+
+                        
+
+```
+
+```bash
+> kubectl patch deployment pipelinerunner --type='json' -p='[
+    {
+        "op": "replace",
+        "path": "/spec/template/spec/containers/0/image",
+        "value": "hferentschik/jx:6f8018014"
+    },
+    {
+        "op": "replace",
+        "path": "/spec/template/spec/containers/0/args/4",
+        "value": "hferentschik/jx:6f8018014"
+    }
+]'
+```
