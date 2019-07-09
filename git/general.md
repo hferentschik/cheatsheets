@@ -1,8 +1,20 @@
 ---
-title: git rebase
+title: git
 category: git
 layout: 2017/sheet
+intro: |
+  Some useful git commands which for working with and on `jx` 
 ---
+
+### Auto signing commits
+
+Per repo:
+
+```bash
+> git config commit.gpgsign true
+```
+
+See also [is-there-a-way-to-autosign-commits-in-git-with-a-gpg-key](https://stackoverflow.com/questions/10161198/is-there-a-way-to-autosign-commits-in-git-with-a-gpg-key)
 
 ### GPG sign commits on a branch
 
