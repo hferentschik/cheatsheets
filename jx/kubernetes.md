@@ -26,11 +26,24 @@ Instead of using `kubectl`:
 
 # Jenkins-X
 > kubectl get pipelineactivity
+> kubectl get sourcerepository
 
 # Tekton
 > kubectl get pipelinerun
 > kubectl get task
 ```
+
+### Get Prow jobs using label selector
+
+```bash
+# comma seperate types if you want to filter on more than one
+> kubectl get prowjob -l 'prow.k8s.io/type in (presubmit)'
+```
+
+* presubmit - pull request
+* batch - batched pull request
+* postsubmit - release
+* peridoc - time based (Prow internal)
 
 ### Krew install
 
