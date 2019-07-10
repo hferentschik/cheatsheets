@@ -57,7 +57,7 @@ Assuming a repository name of _repo_ and the build number _11_:
 
 ```bash
 > for i in pipelineactivity pipeline pipelinestructure taskrun pipelinerun task pod; do 
-   kubectl get "$i" --show-kind --no-headers --ignore-not-found -l repo=demo,build=11
+   kubectl get "$i" --show-kind --no-headers --ignore-not-found -l repository=demo,build=11
   done
 ```
 
