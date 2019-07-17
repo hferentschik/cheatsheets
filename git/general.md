@@ -31,3 +31,12 @@ In case you missed to sign a commit as part of a pull request:
 ```bash
 > git rebase --exec 'git commit --amend --no-edit -n -S' -i master
 ```
+
+### Aligning lables across repositores
+
+```bash
+> npm install -g copy-github-labels-cli
+> copy-github-labels -t <token> <source-repo> <destination-repo>
+```
+
+where token is your GitHub API token.
