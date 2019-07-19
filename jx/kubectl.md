@@ -6,7 +6,10 @@ intro: |
   Some jx and kubectl commands useful when inspecting an Jenksins-X install. 
 ---
 
-### Tailing logs of latest pipelinerunner deployment
+### Tailing logs of a given deployment deployment
+
+Use the _app_ label to find the pod and then use `kubectl logs` to tail the logs.
+For example using the _pipelinerunner_:
 
 ```bash
 > kubectl logs $(kubectl get pod -l app=pipelinerunner -o name) -f
@@ -51,7 +54,7 @@ or to see the endpoints:
 * postsubmit - release
 * peridoc - time based (Prow internal)
 
-### Detect all resources for a given build
+### Detect all pipeline resources for a given build
 
 Assuming a repository name of _repo_ and the build number _11_:
 
@@ -62,3 +65,4 @@ Assuming a repository name of _repo_ and the build number _11_:
 ```
 
 Other labels which can be used: _branch_, _build_, _owner_, _repo_, _prowJobName_
+

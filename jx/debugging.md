@@ -69,3 +69,12 @@ Use [JSON Patch Builder Online](https://json-patch-builder-online.github.io/) to
     }
 ]'
 ```
+
+### Debug issues with Prow jobs not occuring 
+
+Start with checking the Prow config. If it looks ok, check the logs of the pipeline deployment.
+The Prow pipeline controller is the entry point for the Prow jobs.
+
+```bash
+> kubectl log $(kubectl  get pods -l=app=pipeline --no-headers -o name)
+```
