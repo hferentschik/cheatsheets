@@ -38,6 +38,26 @@ Import quickstart from default location [https://github.com/jenkins-x-quickstart
 > jx get build log -f <pr-number>
 ```
 
+### Interactive editing of jenkins-x.yaml
+
+```bash
+> jx create step
+```
+
+Also helpful to understand the pipeline kinds _release_, _pullrequest_, _feature_ as well as the lifecycle methods per pipline -   _setup_, _setversion_, _prebuild_, _build_, _postbuild_, _promote_.
+
+### Show current ingress URLs
+
+```bash
+> jx open
+```
+
+or
+
+```
+> kubectl get ing
+```
+
 ### Change the current Kuberentes namespace
 
 Instead of using `kubectl`:
