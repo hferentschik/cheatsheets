@@ -38,6 +38,15 @@ Import quickstart from default location [https://github.com/jenkins-x-quickstart
 > jx get build log -f <pr-number>
 ```
 
+### Garbage collect pods and activities
+
+```bash
+> jx gc pods
+> jx gc activities
+```
+
+GC cleanup is also configured as _Cron Jobs_ in the cluster - jenkins-x-gcactivities, jenkins-x-gcpods, jenkins-x-gcpreviews.
+
 ### Interactive editing of jenkins-x.yaml
 
 ```bash

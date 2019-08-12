@@ -78,3 +78,11 @@ The Prow pipeline controller is the entry point for the Prow jobs.
 ```bash
 > kubectl log $(kubectl  get pods -l=app=pipeline --no-headers -o name)
 ```
+
+### Using jq to process JSON logs locally
+
+```bash
+> JX_LOG_LEVEL=DEBUG JX_LOG_FORMAT=json jx controller pipelinerunner 2>&1 | jq 'map_values(if .|tostring|(test("\\[") or test("^{")) then (.|fromjson) else . end)'
+```
+
+Note: logs are currently written to stderr!
