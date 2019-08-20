@@ -1,6 +1,6 @@
 ---
-title: Google cloud
-category: gcloud
+title: Google Cloud
+category: tools
 layout: 2017/sheet
 intro: |
   Handy gcloud commands when running Jenkins-X cluster on GKE. 

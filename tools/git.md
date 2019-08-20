@@ -1,6 +1,6 @@
 ---
-title: git
-category: git
+title: Git
+category: tools
 layout: 2017/sheet
 intro: |
   Some useful git commands which for working with and on `jx` 

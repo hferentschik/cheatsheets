@@ -49,10 +49,7 @@ Use [JSON Patch Builder Online](https://json-patch-builder-online.github.io/) to
             }
         ]
      }
- }
-
-                        
-
+ }                
 ```
 
 ```bash
@@ -86,3 +83,10 @@ The Prow pipeline controller is the entry point for the Prow jobs.
 ```
 
 Note: logs are currently written to stderr!
+
+### List all images w/ version in cluster
+
+```bash
+> kubectl get pods -oyaml | grep 'image:' | awk -F ':' '{print $2 ":" $3}' | sort | uniq
+```
+

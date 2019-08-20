@@ -1,6 +1,6 @@
 ---
 title: Docker
-category: docker
+category: tools
 layout: 2017/sheet
 intro: |
   Useful Docker commands

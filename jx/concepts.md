@@ -6,5 +6,5 @@ layout: 2017/sheet
 
 ### Architecture
 
-Event driven Ci/CD system based on Kubernetes CRDs.
+Event driven CI/CD system based on Kubernetes CRDs.
 
