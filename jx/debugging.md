@@ -67,6 +67,27 @@ Use [JSON Patch Builder Online](https://json-patch-builder-online.github.io/) to
 ]'
 ```
 
+### Patch pipelinerunner
+
+```bash
+function patch_pipelinerunner() {
+ cd /Users/hardy/work/go/src/github.com/jenkins-x/jx
+ gvm use system
+ git stash apply $(git stash list | grep alpine | awk -F ':' '{print $1}')
+ make linux
+ tag=$(git rev-parse --short HEAD)
+ docker build -t hferentschik/jx:$tag .
+ docker push hferentschik/jx:$tag
+ kubectl patch deployment pipelinerunner --type='json' -p='[
+    {
+        "op": "replace",
+        "path": "/spec/template/spec/containers/0/image",
+        "value": "hferentschik/jx:'$tag'"
+    }
+ ]'
+}
+```
+
 ### Debug issues with Prow jobs not occuring 
 
 Start with checking the Prow config. If it looks ok, check the logs of the pipeline deployment.
