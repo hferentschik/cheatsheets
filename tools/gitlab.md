@@ -42,7 +42,13 @@ gitlab-runner:
 > kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
 ```
 
-* https://docs.gitlab.com/charts/installation/deployment.html
-* https://docs.gitlab.com/charts/development/minikube/
+* [GitLab Helm instllation](https://docs.gitlab.com/charts/installation/deployment.html)
+* [GitLab mit nip.io](https://docs.gitlab.com/charts/development/minikube)
+
+### API
+
+```bash
+> curl --insecure --header "Private-Token: <token>" https://gitlab.<ip>.nip.io/api/v4/groups
+```
 
 
