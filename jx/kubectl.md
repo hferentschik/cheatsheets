@@ -6,6 +6,12 @@ intro: |
   Some jx and kubectl commands useful when inspecting an Jenksins-X install. 
 ---
 
+### Pod does not start
+
+```bash
+> kubectl describe pods
+```
+
 ### Tailing logs of a given deployment deployment
 
 Use the _app_ label to find the pod and then use `kubectl logs` to tail the logs.

@@ -3,10 +3,10 @@ title: Gitlab
 category: tools
 layout: 2017/sheet
 intro: |
-  How to get GitLab running  
+  How to get GitLab running on Kubernetes
 ---
 
-### Install
+### Installation
 
 Make sure Helm is installed.
 
@@ -41,6 +41,8 @@ gitlab-runner:
 ```bash
 > kubectl get secret gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
 ```
+
+### Links
 
 * [GitLab Helm instllation](https://docs.gitlab.com/charts/installation/deployment.html)
 * [GitLab mit nip.io](https://docs.gitlab.com/charts/development/minikube)
