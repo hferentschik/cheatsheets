@@ -72,3 +72,8 @@ Assuming a repository name of _repo_ and the build number _11_:
 
 Other labels which can be used: _branch_, _build_, _owner_, _repo_, _prowJobName_
 
+###  Manually delete JX install
+
+```bash
+> kubectl delete all --all  -n jx
+```

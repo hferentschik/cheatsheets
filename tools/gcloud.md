@@ -36,10 +36,13 @@ To build and use a custom image, you need to build in a cloudshell. In the cloud
 > cloudshell env build-local
 
 # To use image temporarily for current session
-> cloudshell env push
+> cloudshell env run
 
 # To push to GCloud repo
 > cloudshell env push
+
+# Update image
+> cloudshell env update-default-image --image gcr.io/<project-id>/jx-cloud-shell:latest
 ```
 
-Once the image is pushed, you can select it when you edit the Cloud Shell Environment.
+You will need to restart the VM for changes to apply.
