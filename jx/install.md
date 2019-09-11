@@ -12,7 +12,6 @@ intro: |
 > git clone git@github.com:jenkins-x/jenkins-x-boot-config.git
 > cd jenkins-x-boot-config
 > jx create cluster gke --cluster-name hardy-jx-dev --zone us-central1-a --project-id $GC_PROJECT_ID --skip-login=true --skip-installation
-> yq w -i jx-requirements.yml gitops true
 > jx boot
 ```
 
