@@ -40,3 +40,9 @@ In case you missed to sign a commit as part of a pull request:
 ```
 
 where token is your GitHub API token.
+
+### Git filter-branch
+
+```bash
+> git filter-branch --tree-filter 'rm -rf <file-dir-to-delete>' --prune-empty HEAD
+```

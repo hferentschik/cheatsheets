@@ -74,6 +74,9 @@ Other labels which can be used: _branch_, _build_, _owner_, _repo_, _prowJobName
 
 ###  Manually delete JX install
 
+Brute force:
+
 ```bash
-> kubectl delete all --all  -n jx
+> kubectl delete namespace jx
+> kubectl delete namespace cert-manager
 ```
