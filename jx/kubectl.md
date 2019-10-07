@@ -33,6 +33,12 @@ or to see the endpoints:
 > kubectl api-resources -v=6
 ```
 
+### List all pods with node they are running on
+
+```bash
+> kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces
+```
+
 ### CRDs
 
 ```bash

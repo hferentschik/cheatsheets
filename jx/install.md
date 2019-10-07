@@ -6,6 +6,14 @@ intro: |
   Flavor of the day for installing jx 
 ---
 
+### Installation flavors
+
+Some components of Jenkins X are pluggable, eg
+
+* Prow vs Lighthouse
+* TLS + LetsEncrypt vs nip.io
+* Vault vs local secrets
+
 ### Installation
 
 ```bash

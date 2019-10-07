@@ -74,3 +74,9 @@ Instead of using `kubectl`:
 ```bash
 > jx ns
 ```
+
+### Cleanup GKE resources
+
+```
+> jx gc gke
+```
