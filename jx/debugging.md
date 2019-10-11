@@ -111,3 +111,28 @@ Note: logs are currently written to stderr!
 > kubectl get pods -oyaml | grep 'image:' | awk -F ':' '{print $2 ":" $3}' | sort | uniq
 ```
 
+### Run BDD tests against a fork/branch of bdd-jx
+
+Clone https://github.com/jenkins-x/bdd-jx, branch, write test and push it to your remote.
+
+Then in jx, edit the `ci.sh` script of the context in which you want to run the BDD test, eg `jx/bdd/boot-vault/ci.sh`:
+
+```bash
+jx step bdd \
+    --versions-repo https://github.com/jenkins-x/jenkins-x-versions.git \
+    --config ../jx/bdd/boot-vault/cluster.yaml \
+    --gopath /tmp \
+    --git-provider=github \
+    --git-username $GH_USERNAME \
+    --git-owner $GH_OWNER \
+    --git-api-token $GH_ACCESS_TOKEN \
+    --default-admin-password $JENKINS_PASSWORD \
+    --no-delete-app \
+    --no-delete-repo \
+    --tests test-quickstart-golang-http \
+    --tests test-app-lifecycle \
+    --test-git-repo=<repo> \
+    --test-git-branch=<branch>
+```
+
+Create a WIP pull request and watch the build logs.
