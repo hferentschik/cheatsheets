@@ -75,6 +75,12 @@ Instead of using `kubectl`:
 > jx ns
 ```
 
+### Display current context
+
+```bash
+> jx context
+```
+
 ### Cleanup GKE resources
 
 ```

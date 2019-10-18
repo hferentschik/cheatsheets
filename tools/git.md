@@ -46,3 +46,9 @@ where token is your GitHub API token.
 ```bash
 > git filter-branch --tree-filter 'rm -rf <file-dir-to-delete>' --prune-empty HEAD
 ```
+
+### Pull tags as part of `git pull`
+
+```bash
+$ git config remote.<remote>.tagOpt --tags
+```

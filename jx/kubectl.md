@@ -6,6 +6,12 @@ intro: |
   Some jx and kubectl commands useful when inspecting an Jenksins-X install. 
 ---
 
+### Extended info about pods
+
+```bash
+> kubectl get pods -o wide
+```
+
 ### Pod does not start
 
 ```bash
