@@ -6,6 +6,18 @@ intro: |
   Handy gcloud commands when running Jenkins-X cluster on GKE. 
 ---
 
+### Get a list of your current clusters
+
+```bash
+$ gcloud container clusters list
+```
+
+### Scale cluster
+
+```bash
+>  gcloud container clusters resize <cluster-name> --size <node-count>
+```
+
 ### Open Cloud Console
 
 To open a Google Cloud Console in a terminal
@@ -18,12 +30,6 @@ To open a Google Cloud Console in a terminal
 
 ```bash
 > gcloud config set project [PROJECT_ID]
-```
-
-### Scale cluster
-
-```bash
->  gcloud container clusters resize <cluster-name> --size <node-count>
 ```
 
 ### Building your own cloud shell image
