@@ -27,7 +27,10 @@ jx-vault-hardy-jx-dev http://jx-vault-hardy-jx-dev:8200 jx-vault-hardy-jx-dev-au
 > jx delete vault jx-vault-hardy-jx-dev
 Vault jx-vault-hardy-jx-dev deleted
 
-# reinstall Vault
+# official route - re-run full boot
+> jx boot
+
+# reinstall just Vault
 > cd <boot-config-dir>/systems/vault
-> jx step boot vault
+> JX_INTERPRET_PIPELINE=true jx step boot vault
 ```
