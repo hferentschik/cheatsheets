@@ -52,3 +52,10 @@ To build and use a custom image, you need to build in a cloudshell. In the cloud
 ```
 
 You will need to restart the VM for changes to apply.
+
+
+### Cleaning up cloud resources
+
+```
+> jx gc gke
+```
