@@ -59,3 +59,7 @@ You will need to restart the VM for changes to apply.
 ```
 > jx gc gke
 ```
+
+### Authenticating Without Google Cloud Tools
+
+Download and run [get-kubeconfig.sh](https://github.com/gravitational/teleport/blob/master/examples/gke-auth/get-kubeconfig.sh) after being authenticated via gcloud. See also this blog [post](https://gravitational.com/blog/kubectl-gke/).

@@ -2,11 +2,30 @@
 title: Vault
 category: jx
 layout: 2017/sheet
+intro: |
+  All about Hashicorp's Vault usage in Jenkins X
 ---
+
+### Use
+
+Vault is the recommended way to store secrets for a Jenkins X installation.
+When used with GKE or AWS, Vault is managed via Banzai Clouds [vault operator](https://github.com/banzaicloud/bank-vaults).
+This means setup and key management is handled by the operator.
+There is no "bring your own vault" option yet. 
+For non GKE/AWS one needs to use the _local_ secret management.
+
+### Access to Jenkins X system Vault
+
+```bash
+> eval $(jx get vault-config)
+> vault kv list /secret
+// get a secific secret
+> vault kv get /secret/auth/gitAuth.yaml
+```
 
 ### Recover from a broken Vault install
 
-Problems like:
+Unable to unseal:
 
 ```bash
 jx step boot vault

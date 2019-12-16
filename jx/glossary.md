@@ -13,10 +13,15 @@ Application
   Use `jx [get|delete] application` to manage.
 
 Apps
-: A Jenkins X extension.
+: A Jenkins X extension (might change its name to extension/plugin).
 
+Boot Configuration
+: A repository containing the current configuration of the Jenkins X cluster and installation.
+  Usually one starts of with a clone [jenkins-x-boot-config](https://github.com/jenkins-x/jenkins-x-boot-config) of and then manages the configuration via GitOps simialar to the Environment repositories.
+  See also the [boot](https://jenkins-x.io/docs/getting-started/setup/boot/) online docs.
+ 
 Environment
-: Place (namepsace) into which applications get deployed, e.g. the defaults _Dev_, _Staging_, _Production_.
+: Place (namepsace) into which applications get deployed, e.g. _Staging_ or _Production_.
 
 Storage
 : Persistent storage for build artifacts like logs, test or coverage reports.
