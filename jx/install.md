@@ -12,8 +12,9 @@ intro: |
 > jx create cluster gke --cluster-name hardy-jx-dev --zone us-central1-a --project-id $GC_PROJECT_ID --skip-login=true --skip-installation
 > git clone git@github.com:jenkins-x/jenkins-x-boot-config.git
 > cd jenkins-x-boot-config
-> yq w -i jx-requirements.yml secretStorage vault    # using Vault
-> yq w -i jx-requirements.yml cluster.gitPublic true # using public env repos 
+> yq w -i jx-requirements.yml secretStorage vault               # using Vault
+> yq w -i jx-requirements.yml cluster.environmentGitPublic true # using pubic env repos
+> yq w -i jx-requirements.yml cluster.gitPublic true            # using public application repos 
 > jx boot
 ```
 
