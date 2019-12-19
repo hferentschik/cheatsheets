@@ -18,9 +18,9 @@ For non GKE/AWS one needs to use the _local_ secret management.
 
 ```bash
 > eval $(jx get vault-config)
-> vault kv list /secret
-// get a secific secret
-> vault kv get /secret/auth/gitAuth.yaml
+> vault kv list /secret # list secrets
+> vault kv get /secret/auth/gitAuth.yaml # get a secific secret
+> vault kv get -format json /secret/auth/gitAuth.yaml | jq -r .data.data.yaml | base64 -D
 ```
 
 ### Recover from a broken Vault install
