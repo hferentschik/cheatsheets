@@ -24,6 +24,12 @@ intro: |
 > jx uninstall
 ```
 
+To also delete the environment repositories:
+
+```bash
+> jx delete repo -o <repo-owner>
+```
+
 ### Installation flavors
 
 * Prow vs Lighthouse
