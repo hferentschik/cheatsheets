@@ -52,3 +52,24 @@ where token is your GitHub API token.
 ```bash
 $ git config remote.<remote>.tagOpt --tags
 ```
+
+### Show sha of the current refs
+
+```bash
+$ git show-ref --head --dereference
+```
+
+### Show sha of the current refs
+
+```bash
+$ git show-ref --head --dereference
+```
+
+### Find merge commits with manual changes
+
+```bash
+$ git log -p --cc --min-parents=2
+```
+
+
+
