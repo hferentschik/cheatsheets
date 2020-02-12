@@ -71,5 +71,8 @@ $ git show-ref --head --dereference
 $ git log -p --cc --min-parents=2
 ```
 
+### Find sha for tag
 
-
+```bash
+$ git rev-list -n 1 $TAG
+```
