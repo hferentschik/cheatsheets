@@ -2,7 +2,21 @@
 title: Debugging
 category: jx
 layout: 2017/sheet
+intro: |
+  Everything around debugging and troubleshooting jx issues
 ---
+
+### Debuging Kube API
+
+```
+> TRACE_KUBE_API=1 jx <cmd>
+```
+
+### Debuging GitHub API
+
+```
+> TRACE_GITHUB_API=1 jx <cmd>
+```
 
 ### Running jx dev versions within the cluster
 
