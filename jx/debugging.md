@@ -18,6 +18,12 @@ intro: |
 > TRACE_GITHUB_API=1 jx <cmd>
 ```
 
+### Debuging Helmer
+
+```
+> JX_HELM_VERBOSE=1 jx <cmd>
+```
+
 ### Running jx dev versions within the cluster
 
 To test controllers or pipeline steps in a running cluster against a dev version of `jx`, one can build the image locally, push it to a accessible image registry (eg Docker Hub) and then change the deployment config of the appropriate deployment to use this new image.

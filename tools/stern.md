@@ -15,6 +15,7 @@ intro: |
 ### Usage
 
 ```bash
-> stern <build pod name>
+> stern -s 5m -n jx .
 ```
 
+Last argument is the pod query and can be adjusted to just target a specific pod.

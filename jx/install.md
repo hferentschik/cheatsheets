@@ -6,19 +6,49 @@ intro: |
   How to install Jenkins X 
 ---
 
-### Installation
+### Installation GKE
+
+Create bucket for Terraform state:
 
 ```bash
-> jx create cluster gke --cluster-name hardy-jx-dev --zone us-central1-a --project-id $GC_PROJECT_ID --skip-login=true --skip-installation
-> git clone git@github.com:jenkins-x/jenkins-x-boot-config.git
-> cd jenkins-x-boot-config
-# some recommended settings
-> yq w -i jx-requirements.yml secretStorage vault               # using Vault
-> yq w -i jx-requirements.yml cluster.environmentGitPublic true # using pubic env repos
-> yq w -i jx-requirements.yml cluster.gitPublic true            # using public application repos 
-> yq w -i jx-requirements.yml storage.logs.enabled true         # using a bucket for logs
-> yq w -i jx-requirements.yml storage.reports.enabled true      # using a bucket for test report
-> jx boot
+> gsutil mb gs://my-tf-state-bucket/
+```
+
+Export _TF_VAR_gcp_project_:
+
+```bash
+> export TF_VAR_gcp_project=${GC_PROJECT_ID}
+```
+
+In empty directory in _main.tf_:
+
+```terraform
+terraform {
+  backend "gcs" {
+    bucket = "my-tf-state-bucket"
+    prefix = "jx-dev"
+  }
+}
+
+variable "gcp_project" {}
+
+module "jx" {
+  source = "jenkins-x/jx/google"
+
+  gcp_project = var.gcp_project
+  resource_labels = { created-by = "hardy", powered-by = "jenkins-x" }
+}
+```
+
+```bash
+> terraform init
+> terraform apply
+```
+
+In another directory:
+
+```bash
+> jx boot -r <path-to-requirements-file>
 ```
 
 ### Uninstallation
@@ -32,12 +62,6 @@ To also delete the environment repositories:
 ```bash
 > jx delete repo -o <repo-owner>
 ```
-
-### Installation flavors
-
-* Prow vs Lighthouse
-* TLS + LetsEncrypt vs nip.io
-* Vault vs local secrets
 
 ### Common install problems
 
