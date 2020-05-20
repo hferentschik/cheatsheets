@@ -9,11 +9,11 @@ layout: 2017/sheet
 Shell 1
 
 ```bash
-> jx synx
+> jx sync
 ```
 
 Shell 2 (in the directory  you want to share)
 
 ```bash
-> jx create devpos --sync --reuse
+> jx create devpod --sync --reuse
 ```
